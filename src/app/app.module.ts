@@ -16,13 +16,23 @@ import { ChatService } from './services/chat.service';
 
 import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { FeedComponent } from './feed/feed.component';
+import { ChatFormComponent } from './chat-form/chat-form.component';
+import { ChatEngineComponent } from './chat-engine/chat-engine.component';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    UserListComponent,
+    FeedComponent,
+    ChatFormComponent,
+    ChatEngineComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,

@@ -4,8 +4,23 @@
 @import "./assets/line-icon-pro/style.css";
 @import "./assets/fonts/fonts.scss";
 
-
-body {
-    font-family: "century_gothic", Verdana, Tahoma !important;
+* {
+  box-sizing: border-box; 
 }
 
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: "century_gothic", Verdana, Tahoma !important;
+    overflow: hidden;
+}
+
+*:focus, *:active {
+    outline: none !important;
+    box-shadow: none !important;
+ }

@@ -1,14 +1,13 @@
-<section class="container-fluid chat-app">
-    <section class="row chat-header">
-        <nav class="navbar navbar-light bg-dark justify-content-between">
-            <a class="navbar-brand logo">CHATi</a>
-            <form class="form-inline">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-          </nav>
-    </section>
-    <section class="row ">
-        
-    </section>
-  </section>
+<header>
+  <nav class="navbar navbar-light bg-dark justify-content-between">
+    <a class="navbar-brand logo">CHATi</a>
+    <form class="form-inline">
+      <input class="form-control mr-sm-2 form-control-no-border" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </nav>
+</header>
+<app-chat-engine style="width: 100%"></app-chat-engine>
+<footer class="chat-form">
+    <app-chat-form></app-chat-form>
+</footer>

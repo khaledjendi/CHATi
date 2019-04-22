@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyB6uk30iuS3AF7qn7uBPWbNrygQuosZLdQ',
-    authDomain: 'chati-c16d7.firebaseapp.com',
-    databaseURL: 'https://chati-c16d7.firebaseio.com',
-    projectId: 'chati-c16d7',
-    storageBucket: 'chati-c16d7.appspot.com',
-    messagingSenderId: '388492419853'
+    apiKey: 'AIzaSyDYBtT8vyJtP1Spy-orbfhEjBCdO5WTdno',
+    authDomain: 'chati-48ab8.firebaseapp.com',
+    databaseURL: 'https://chati-48ab8.firebaseio.com',
+    projectId: 'chati-48ab8',
+    storageBucket: 'chati-48ab8.appspot.com',
+    messagingSenderId: '29870315834'
   } 
 };
 

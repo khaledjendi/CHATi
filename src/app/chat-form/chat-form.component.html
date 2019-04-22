@@ -1,0 +1,10 @@
+<div class="input-group input-group-sm mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text">Message</span>
+  </div>
+  <input type="text" [(ngModel)]="msg" (keydown)="handleSubmit($event)" class="form-control form-control-no-border"
+    placeholder="Type your message here ...">
+  <div class="input-group-append">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)=send()>Send</button>
+  </div>
+</div>
