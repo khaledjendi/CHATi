@@ -1,0 +1,41 @@
+.userItem{
+    height: 20px;
+    width: 100%;
+    margin-top: 10px;
+    align-items:center;
+    flex: 0 0 100%;
+    font-family: "century_gothic_bold", Verdana, Tahoma !important;
+    color: rgba(255, 193, 152, 0.7);
+    border-radius: 8px;
+    transition: ease-in 0.2s;
+}
+
+.userItem:hover{
+    color: #fff;
+    transition: ease-in 0.1s;
+}
+
+.online{
+    background-color: #0FA;
+}
+
+.busy{
+    background-color: #FB0;
+}
+
+.offline{
+    background-color: #888;
+}
+
+.status{
+    border: 1px solid black;
+    display: inline-block;
+    min-width: 10px;
+    min-height: 10px;
+    border-radius: 50%;
+    margin: 10px 12px 0px 10px;
+}
+
+.userName{
+    display: inline-block;
+}

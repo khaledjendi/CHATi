@@ -21,6 +21,7 @@ import { FeedComponent } from './feed/feed.component';
 import { ChatFormComponent } from './chat-form/chat-form.component';
 import { ChatEngineComponent } from './chat-engine/chat-engine.component';
 import { MessageComponent } from './message/message.component';
+import { UserItemComponent } from './user-item/user-item.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MessageComponent } from './message/message.component';
     FeedComponent,
     ChatFormComponent,
     ChatEngineComponent,
-    MessageComponent
+    MessageComponent,
+    UserItemComponent
   ],
   imports: [
     BrowserModule,

@@ -17,6 +17,8 @@
 #chat-engine > nav {
   background-color: rgba(52, 58, 64, 0.8);
   flex: 0 0 20vw;
+  width:100%;
+  
   order: -1;
   border-right: 1px solid #ffffff;
   overflow: auto;
@@ -30,8 +32,4 @@
 // .chat-form {
 //   position: fixed;
 //   bottom: 0;
-// }
-
-// .user-list {
-//   background-color: rgba(52, 58, 64, 0.8);
 // }

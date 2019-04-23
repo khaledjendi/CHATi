@@ -10,7 +10,7 @@ import { tap } from "rxjs/operators";
   providedIn: 'root'
 })
 export class AuthService {
-  private user: any;
+  private user: Observable<firebase.User>;
   userId: string;
   authState: any;
   errorMsg: string = "";
@@ -24,8 +24,10 @@ export class AuthService {
           this.user.pipe(tap(user => {
             if (user) {
               this.userId = user.uid
-              this.updateOnConnect()
-              this.updateOnDisconnect()
+              if(this.userId !== undefined && this.userId != null) {
+                this.updateOnConnect()
+                this.updateOnDisconnect()
+              }
             }
           })).subscribe();
       }
@@ -33,12 +35,13 @@ export class AuthService {
   }
 
   private updateStatus(status: string) {
-    if (!this.userId)
+    console.log(status + " --- " +  this.userId);
+    if (this.userId !== undefined && this.userId != null)
       return this.db.object(`users/` + this.userId).update({ status: status })
   }
 
   private updateOnConnect() {
-    return this.db.object('.info/connected').valueChanges().pipe(tap(connected => {
+    return this.db.object('.info/connected').valueChanges().pipe(tap((connected: any) => {
       let status = connected ? 'online' : 'offline'
       this.updateStatus(status)
     })).subscribe();
@@ -58,13 +61,10 @@ export class AuthService {
     return this.authState !== null ? this.authState.uid : '';
   }
 
-  login(email: string, password: string) {
-    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-      .then((user) => {
-        this.authState = user;
-        this.setUserStatus('online');
-        this.router.navigate(['home']);
-      });
+  async login(email: string, password: string) {
+    const user = await this.afAuth.auth.signInWithEmailAndPassword(email, password);
+    this.authState = user;
+    this.router.navigate(['home']);
   }
 
 

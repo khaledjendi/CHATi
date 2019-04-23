@@ -13,7 +13,6 @@ export class GuardService implements CanActivate {
   constructor(private afAuth: AuthService, private router: Router) { }
 
   canActivate(router, state: RouterStateSnapshot): boolean {
-    return true;
     if(this.afAuth.authState !== undefined && this.afAuth.authState != null) {
       return true;
     }
