@@ -18,7 +18,7 @@ export class ChatEngineComponent implements OnInit {
         });
         function adjustHeight() {
           $('#chat-engine').height($(window).height() - ($('header').outerHeight() + $('footer').outerHeight()));
-          $('#feed').height($(window).height() - ($('header').outerHeight() + $('footer').outerHeight()));
+          $('#feed').height($(window).height() - ($('header').outerHeight() + $('footer').outerHeight() + 20));
         }
     });
   }

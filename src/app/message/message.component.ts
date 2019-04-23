@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Message } from '../models/message.model';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-message',
@@ -13,8 +14,15 @@ export class MessageComponent implements OnInit {
   msgContent: string;
   time: string;
 
+  isOwnMessage: boolean;
+  ownEmail: string;
 
-  constructor() { }
+  constructor(private authService: AuthService) {
+    authService.authUser().subscribe(user => {
+      this.ownEmail = user.email;
+      this.isOwnMessage = this.ownEmail === this.email;
+    });
+  }
 
   ngOnInit(message = this.message) {
     this.msgContent = message.message;

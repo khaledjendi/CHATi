@@ -1,6 +1,7 @@
 <header>
   <nav class="navbar navbar-light bg-dark justify-content-between">
-    <a class="navbar-brand logo">CHATi</a>
+    <a class="navbar-brand logo">CHATi <span id="userEmail" *ngIf="(user|async)?.uid">{{userEmail}}</span> <a id="logout"
+        *ngIf="(user|async)?.uid" href="#" (click)="logout()">Logout</a> </a>
     <form class="form-inline">
       <input class="form-control mr-sm-2 form-control-no-border" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
@@ -9,5 +10,5 @@
 </header>
 <app-chat-engine style="width: 100%"></app-chat-engine>
 <footer class="chat-form">
-    <app-chat-form></app-chat-form>
+  <app-chat-form></app-chat-form>
 </footer>

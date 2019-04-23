@@ -5,9 +5,9 @@
       <input type="text" name="email" placeholder="Email" required="required" [(ngModel)]="email" />
       <input type="password" name="password" placeholder="Password" minlength="6" required="required"
         [(ngModel)]="password" />
-      <div class="register">Not registered? Register here</div>
+      <div class="register">Not registered? <a routerLink="/signup">Register here</a></div>
       <button [disabled]="!signupForm.form.valid" type="submit" class="btn btn-dark btn-block btn-large"
-        (click)="signUp()">Sign Up</button>
+        (click)="login()">Login</button>
 
       <div class="error_msg" name="error_msg">{{ errorMsg }}</div>
     </form>

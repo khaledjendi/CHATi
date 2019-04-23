@@ -10,29 +10,31 @@ import { tap } from "rxjs/operators";
   providedIn: 'root'
 })
 export class AuthService {
-  private user: Observable<firebase.User>;
+  private user: any;
   userId: string;
-  private authState: any;
+  authState: any;
   errorMsg: string = "";
 
   constructor(private afAuth: AngularFireAuth, private db: AngularFireDatabase, private router: Router) {
+    this.user = afAuth.authState;
     this.afAuth.authState.subscribe(auth => {
       if (auth) {
         this.authState = auth;
-        this.user.pipe(tap(user => {
-          if (user) {
-            this.userId = user.uid
-            this.updateOnConnect()
-            this.updateOnDisconnect()
-          }
-        })).subscribe();
+        if (this.user !== undefined && this.user != null)
+          this.user.pipe(tap(user => {
+            if (user) {
+              this.userId = user.uid
+              this.updateOnConnect()
+              this.updateOnDisconnect()
+            }
+          })).subscribe();
       }
     });
   }
 
   private updateStatus(status: string) {
-    if (!this.userId) 
-    return this.db.object(`users/` + this.userId).update({ status: status })
+    if (!this.userId)
+      return this.db.object(`users/` + this.userId).update({ status: status })
   }
 
   private updateOnConnect() {
@@ -48,8 +50,8 @@ export class AuthService {
 
   private updateOnDisconnect() {
     firebase.database().ref().child(`users/${this.userId}`)
-            .onDisconnect()
-            .update({status: 'offline'})
+      .onDisconnect()
+      .update({ status: 'offline' })
   }
 
   get currentUserId(): string {
@@ -64,7 +66,7 @@ export class AuthService {
         this.router.navigate(['home']);
       });
   }
-  
+
 
   logout() {
     this.afAuth.auth.signOut();
@@ -86,7 +88,7 @@ export class AuthService {
     }
   }
 
-  
+
 
   setUserData(email: string, displayName: string, status: string): void {
     const path = `users/${this.currentUserId}`;

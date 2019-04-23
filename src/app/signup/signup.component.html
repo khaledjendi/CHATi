@@ -5,7 +5,7 @@
       <input type="text" name="username" placeholder="Username" required="required" [(ngModel)]="displayName" />
       <input type="text" name="email" placeholder="Email" required="required" [(ngModel)]="email" />
       <input type="password" name="password" placeholder="Password" minlength="6" required="required" [(ngModel)]="password" />
-      <div class="register">Already a user? Login here</div>
+      <div class="register">Already a user? <a routerLink="/login">Login here</a></div>
       <button [disabled]="!signupForm.form.valid" type="submit" class="btn btn-dark btn-block btn-large"
         (click)="signUp()">Sign Up</button>
 
