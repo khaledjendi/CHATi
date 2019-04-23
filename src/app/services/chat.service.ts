@@ -8,6 +8,7 @@ import { AuthService } from '../services/auth.service';
 import * as firebase from 'firebase/app';
 
 import { Message } from '../models/message.model';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,17 +16,30 @@ import { Message } from '../models/message.model';
 export class ChatService {
   messages: AngularFireList<Message>;
   //message: Message;
-  username: Observable<string>;
+  displayName: string;
   user: firebase.User;
 
   constructor(private afDB: AngularFireDatabase, private afAuth: AngularFireAuth) {
     this.afAuth.authState.subscribe(auth_user => {
       if (auth_user !== undefined && auth_user != null) {
         this.user = auth_user;
-        
       }
-    });
 
+      this.getUser().valueChanges().subscribe((a: any) => {
+        this.displayName = a.displayName;
+      });
+    });
+  }
+
+  getUser() {
+    const userId = this.user.uid;
+    const path = `/users/${userId}`;
+    return this.afDB.object(path);
+  }
+
+  getUsers() {
+    const path = '/users';
+    return this.afDB.list(path);
   }
   
   sendMsg(msg: string): boolean {
@@ -34,7 +48,7 @@ export class ChatService {
       this.messages.push({
         message: msg,
         time: this.getTimeStamp(),
-        username: (this.user !== undefined && this.user != null) ? this.user.displayName : '',
+        username: (this.displayName !== undefined && this.displayName != null) ? this.displayName : '',
         email: (this.user !== undefined && this.user != null) ? this.user.email : ''
       });
       return true;

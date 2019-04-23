@@ -1,3 +1,16 @@
-<p>
-  login works!
-</p>
+<form #signupForm="ngForm">
+  <div class="login">
+    <h2>CHATi</h2>
+    <form method="post">
+      <input type="text" name="email" placeholder="Email" required="required" [(ngModel)]="email" />
+      <input type="password" name="password" placeholder="Password" minlength="6" required="required"
+        [(ngModel)]="password" />
+      <div class="register">Not registered? Register here</div>
+      <button [disabled]="!signupForm.form.valid" type="submit" class="btn btn-dark btn-block btn-large"
+        (click)="signUp()">Sign Up</button>
+
+      <div class="error_msg" name="error_msg">{{ errorMsg }}</div>
+    </form>
+
+  </div>
+</form>

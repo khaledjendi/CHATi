@@ -20,6 +20,7 @@ export class ChatFormComponent implements OnInit {
   }
 
   send() {
+    if(this.msg === "") return;
     if(this.chatService.sendMsg(this.msg)) {
       this.msg = "";
     }
