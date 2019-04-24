@@ -16,7 +16,7 @@ spec:
     spec: 
       containers: 
       - name: chati-app
-        image: index.docker.io/jschnitzer1/chati:v1 
+        image: index.docker.io/jschnitzer1/chati:v2 
         ports: 
         - containerPort: 80 
         livenessProbe:
@@ -40,4 +40,4 @@ spec:
     nodePort: 31002 
   type: NodePort 
 
-  # commit test 2
+  # commit test 5
