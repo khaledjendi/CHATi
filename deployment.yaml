@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata: 
+  name: chati-deployment #name of microservice application
+  labels:
+    app: chati-app 
+spec: 
+  selector: 
+    matchLabels: 
+      app: chati-app 
+  replicas: 2 # define replication set with factor of 2 (run in 2 pods)
+  template: 
+    metadata: 
+      labels: 
+        app: chati-app 
+    spec: 
+      containers: 
+      - name: chati-app
+        image: index.docker.io/jschnitzer1/chati:v1 
+        ports: 
+        - containerPort: 80 
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 15
+          timeoutSeconds: 30
+--- 
+apiVersion: v1 
+kind: Service 
+metadata: 
+  name: chati-service 
+spec: 
+  selector: 
+    app: chati-app 
+  ports: 
+  - protocol: TCP 
+    port: 80 
+    targetPort: 80 
+    nodePort: 31002 
+  type: NodePort 
