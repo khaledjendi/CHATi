@@ -7,7 +7,7 @@ export class GeneralService {
   version: string;
   navColor: string;
   constructor() { 
-    this.version = "v1";
+    this.version = "v11";
     try {
       let ver_num = parseInt(this.version.replace(/\D/g, ''), 10);
       this.navColor = this.generateColor(ver_num);
