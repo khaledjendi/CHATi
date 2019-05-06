@@ -1,6 +1,6 @@
 <form #signupForm="ngForm">
   <div class="login">
-    <h2>CHATi</h2>
+    <h2>CHATi <h4>{{general.version}}</h4></h2>
     <form method="post">
       <input type="text" name="email" placeholder="Email" required="required" [(ngModel)]="email" />
       <input type="password" name="password" placeholder="Password" minlength="6" required="required"

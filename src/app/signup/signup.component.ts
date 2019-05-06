@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { GeneralService } from '../services/general.service';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +14,7 @@ export class SignupComponent implements OnInit {
   email: string;
   errorMsg: string;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private general:GeneralService, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
