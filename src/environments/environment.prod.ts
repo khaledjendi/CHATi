@@ -7,5 +7,6 @@ export const environment = {
     projectId: 'chati-48ab8',
     storageBucket: 'chati-48ab8.appspot.com',
     messagingSenderId: '29870315834'
-  } 
+  },
+  version: 'v14'
 };

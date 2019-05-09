@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ export class GeneralService {
   version: string;
   navColor: string;
   constructor() { 
-    this.version = "v11";
+    this.version = environment.version;
     try {
       let ver_num = parseInt(this.version.replace(/\D/g, ''), 10);
       this.navColor = this.generateColor(ver_num);
