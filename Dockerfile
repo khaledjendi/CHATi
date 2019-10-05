@@ -1,7 +1,7 @@
 # stage 1
 # this stage is for building the app 
 # it contains the tools to build and debug the app (ng commands)
-FROM node:latest as node
+FROM node:11.15.0 as node
 WORKDIR /app
 COPY . .
 RUN npm install
